@@ -1,0 +1,335 @@
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("fonts/UbuntuMono-R.ttf");
+}
+@font-face {
+    font-family: "Ubuntu Mono";
+     src: url("fonts/UbuntuMono-B.ttf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("fonts/UbuntuMono-RI.ttf");
+    font-style: italic;
+}
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("fonts/UbuntuMono-BI.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+.mimetics-fg-color {
+  color: #4F8500;
+}
+
+.mimetics-bg-color {
+  background-color: #4F8500;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 353px;
+}
+
+.titlebar{
+  position: fixed;
+  background: #63af47;
+  color: #FFF;
+  top: 0;
+  right: 100px;
+  left: 0;
+  height: 25px;
+  padding-top: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-width: 1px 1px 0 1px;
+  -webkit-app-region: drag;  
+}
+
+.window-control{
+  position: fixed;
+  background: #888;
+  color: #FFF;
+  top: -2px;
+  right: 0px;
+  width: 100px;
+  height: 25px;   
+}
+
+.navbar-fixed-top-bordered {  
+  position: fixed;
+  top: 25px;
+  right: 0;
+  left: 0;
+  border-width: 0 0 1px 0;  
+}
+
+.navbar-default .navbar-text {
+  color: #444444;
+}
+
+.ace_gutter-cell.ace_breakpoint{ 
+    border-radius: 20px 0px 0px 20px; 
+    box-shadow: 0px 0px 1px 1px red inset; 
+} 
+
+.highlight_error {
+    position: absolute;
+    z-index: 4;
+    background: rgb(255, 0, 0);
+}
+
+.highlight_executingLine {
+    position: absolute;
+    z-index: 4;
+    background: rgb(255, 255, 0);
+}
+
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+/* main content layout styles */
+
+#app-content {
+  position: absolute;
+  margin: 0 auto;
+  top: 79px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.container-full {
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.ui-section {
+  position: absolute;
+  padding: 10px;
+  height: 100%;
+}
+
+#left-section {
+  padding:0px;
+  margin:0px;
+  width: 410px;  
+}
+
+#right-section {
+  padding:0px;
+  margin:0px;;
+  left: 407px;
+  right: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 353px;
+  padding: 5px;
+}
+
+#editor-tab-container,
+#project-container
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 353px;
+  margin: 5px 5px 0px 5px;
+}
+
+#project-container {
+  width:402px;
+}
+
+#assistant-container {
+  width: 402px;
+  height: 100%; 
+}
+
+#vardump-container {
+  width: 100%;
+  height: 100%; 
+}
+
+/* project browser styles */
+
+#project-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0px;
+}
+
+#project-panel > .panel-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 41px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+/* assistant styles */
+
+#assistant-panel {
+  margin: 0px;
+  padding: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#assistant-panel > .panel-body {
+  margin: 0px;
+  padding: 0px;
+  width: 400px;
+  height: 300px;
+}
+
+/* editor area styles */
+
+.editor-pane {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+}
+
+.editor-content {
+  height: 100%;
+  width: 100%;
+}
+
+.editor-component {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
+
+.blockly-frame {
+  width: 100%;
+  height: 100%;
+}
+
+/* variable dump styles */
+
+#vardump-panel {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+#vardump-panel .panel-body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 300px;
+}
+
+.log-pane {
+  overflow-y: scroll;
+  padding: 0px;
+}
+
+.log-data {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: text;
+}
+
+/* home screen styles */
+
+#home-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  border-radius: 6px;
+  overflow-y: auto;
+}
+
+/* other styles */
+
+.clipboard-scratchpad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.dropdown-menu > li > a.shortcut {
+  position: relative;
+}
+
+.dropdown-menu > li > a.shortcut > span.kbd {
+  position: absolute;
+  right: 20px;
+  top: 3px;
+}
+
+.scroll-pane {
+  overflow-y: scroll;
+  padding: 0px;
+}
+
+.blocklySvg {
+  width: 100%;
+  height: 100%;
+}
+
+.blocklyToolboxDiv {
+  height: 100%;
+}
+
+/* modals css */
+
+/* dashboard modal */
+
+#about-version-block {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.about-api-version {
+  margin-bottom: 0px;
+}
+
+.markdown-render p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}

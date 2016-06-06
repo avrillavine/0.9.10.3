@@ -1,0 +1,110 @@
+<div id="toolbar-section" data-ng-controller="ToolbarController" data-ng-init="updateCommPortList()">
+
+<!-- branding -->
+<div class="navbar-header">
+  <a class="" href="#">
+    <img class="media-object" height="50" src="img/spacer.png">
+  </a>
+</div>
+
+<!-- BT Config -->
+<div class="navbar-text btn-group">
+  <div class="btn-group dropdown" is-open="commPortDropdownOpen">
+<!--    <a id="com-width" class="btn btn-default dropdown-toggle a4-left-btn" href="#" ng-disabled="connectTransitioning"><img src="img/bluetooth.png" height="28px" width="28px" class="a4-left-btn"> {{ selectedCommPort || 'Bluetooth Connections'}}</a>  -->
+<!--    <a id="com-width" class="btn dropdown-toggle a4-left-btn" ng-disabled="!btAdapterGoodToGo" ng-class="{'btn-primary': isRobotConnected, 'btn-default': !isRobotConnected, 'btn-info':connectTransitioning, 'btn-danger':!btAdapterGoodToGo}" href="#" ng-disabled="connectTransitioning"><img src="img/bluetooth.png" height="28px" width="28px" class="a4-left-btn"> {{ selectedCommPort || 'Bluetooth Connections'}}</a> -->
+    <a id="com-width" class="btn dropdown-toggle a4-left-btn"
+                   ng-class="{'btn-danger': !btActiveFlag, 'btn-primary': isRobotConnected, 'btn-default': !isRobotConnected, 'btn-info': connectTransitioning}" href="#"
+                   ng-disabled="!btActiveFlag"><img src="img/bluetooth.png" height="28px" width="28px" class="a4-left-btn"> {{ selectedCommPort || 'Bluetooth Connections'}}</a> 
+    <ul id="com-width" class="dropdown-menu">
+      <li id="commPortHeader">
+        <a id="disconnectMessage" href="javscript:void(0);" ng-click="selectCommPort('disconnectMessage')"><i class="fa fa-fw"></i> Disconnect</a> 
+      </li>
+      <li ng-repeat="commPort in commPortList">
+        <a href="javscript:void(0);" ng-click="selectCommPort(commPort)"><i class="fa fa-desktop fa-fw"></i> {{ commPort.name }}</a> 
+      </li>
+<!--
+      <li ng-repeat="commPort in commPortList | filter: { path: '/dev/tty' } | filter: { path: 'SPPDev'} | orderBy: 'path'">
+        <a href="javscript:void(0);" ng-click="selectCommPort(commPort.path)"><i class="fa fa-desktop fa-fw"></i> {{ commPort.path | stripBTPath }}</a>
+      </li>
+      <li ng-repeat="commPort in commPortList | filter: { path: '!/dev/tty' } | filter: { path: '!/dev/cu' } | orderBy: ['path.length', 'path']">
+        <a href="javscript:void(0);" ng-click="selectCommPort(commPort.path)"><i class="fa fa-desktop fa-fw"></i> {{ commPort.path }}</a>
+      </li>
+-->
+<!--
+      <li><a href="#"><i class="fa fa-plus fa-fw"></i> New</a></li>
+      <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>      
+      <li class="dropdown-header">Saved Connections</li>
+      <li><a href="#"><i class="fa fa-desktop fa-fw"></i> MYKE BT CONN1</a></li>
+      <li class="divider"></li>
+      <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+-->
+
+    </ul>
+  </div>
+<!--  <a ng-disabled="connectTransitioning || isRobotConnected || !selectedCommPort" ng-class="{'a4-icon-disconnect': isRobotConnected, 'a4-icon-connect': !isRobotConnected}" class="btn btn-default" href="#" ng-click="toggleConnect()" tooltip="Connect" tooltip-placement="bottom">
+    <span>
+      <img src="img/connect.png" height="28px" width="28px">
+    </span>
+  </a>
+  <a ng-disabled="connectTransitioning || !isRobotConnected" ng-class="{'a4-icon-disconnect': isRobotConnected, 'a4-icon-connect': !isRobotConnected}" class="btn btn-default" href="#" ng-click="toggleConnect()" tooltip="Disconnect" tooltip-placement="bottom">
+    <span>
+      <img src="img/disconnect.png" height="28px" width="28px">
+    </span>
+  </a>  -->
+
+    
+
+</div>
+
+<!--  BELOW COMMENTED OUT FO 0.9.10.0  -->
+<!--  <!-- File Section --> 
+<!--  -->
+<!--  <!--  
+<!--  <a class="btn btn-default" href="#" ng-click="modals.newfile.open()" title="New File"><img src="img/newfile.png" height="28px" width="28px"></a>    -->
+<!--  <a class="btn btn-default" href="#" ng-click="modals.importfile.open()" title="Import File"><img src="img/importfile.png" height="28px" width="28px"></a>  -->
+<!--  --> 
+<!--  <div class="navbar-text btn-group dropdown a4-dd">      -->
+<!--    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Edit"><i class="fa fa-pencil fa-2x"></i><i class="fa fa-caret-down"></i></a>    -->
+<!--    <ul class="dropdown-menu a4-dd-menu" role="menu">  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.undo()">Undo<kbd class="pull-right">{{editshortcuts.undo[platformInfo.os]}}</kbd></a></li>  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.redo()">Redo<kbd class="pull-right">{{editshortcuts.redo[platformInfo.os]}}</kbd></a></li>  -->
+<!--      <li class="divider"></li>  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.cut()">Cut<kbd class="pull-right">{{editshortcuts.cut[platformInfo.os]}}</kdb></a></li>  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.copy()">Copy<kbd class="pull-right">{{editshortcuts.copy[platformInfo.os]}}</kbd></a></li>  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.paste()">Paste<kbd class="pull-right">{{editshortcuts.paste[platformInfo.os]}}</knd></a></li>  -->
+<!--      <!--  
+<!--      <li class="divider"></li>  -->
+<!--      <li><a id="menu-edit-find" href="#">Find</a></li>  -->
+<!--      <li><a id="menu-edit-replace" href="#">Replace</a></li>  -->
+<!-- THIS IS CLOSING COMMENT FOR THE COMMENTED OUT find/replace    -->
+<!--      <li class="divider"></li>  -->
+<!--      <li><a href="javscript:void(0);" class="shortcut" ng-click="editor.selectall()">Select All<kbd class="pull-right">{{editshortcuts.selectall[platformInfo.os]}}</kbd></a></li>  -->
+<!--    </ul>  -->
+<!--  </div>  -->
+
+
+<!-- Edit Button -->
+
+<!-- Break Run Section -->
+<div class="navbar-text btn-group">
+  <a class="btn btn-default" href="#" ng-click="buildDownloadAndRunProject(currentProject)" tooltip-placement="bottom" tooltip="Run (F8)" ng-class="{'btn-default' : !currentProject.dirty , 'btn-danger' : currentProject.dirty}"><i class="fa fa-play fa-2x"></i></a>  
+  <a class="btn btn-default" href="#" ng-click="robot.pause()" tooltip-placement="bottom" tooltip="Pause (ESC)"><i class="fa fa-pause fa-2x"></i></a>
+  <a class="btn btn-default" href="#" ng-click="buildDownloadAndResetProject(currentProject)" tooltip-placement="bottom" tooltip="Reset"><i class="fa fa-repeat fa-2x"></i></a>
+</div>
+
+<!-- Step OVER IN OUT Section -->
+<div class="navbar-text btn-group">
+  <a class="btn btn-default" href="#" ng-click="robot.stepIn()" tooltip-placement="bottom" tooltip="Step-In (F5)"><img src="img/stepin.png" height="28px" width="28px"></a>
+  <a class="btn btn-default" href="#" ng-click="robot.stepOver()" tooltip-placement="bottom" tooltip="Step-Over (F6)"><img src="img/stepover.png" height="28px" width="28px"></a>
+  <a class="btn btn-default" href="#" ng-click="robot.stepOut()" tooltip-placement="bottom" tooltip="Step-Out (F7)"><img src="img/stepout.png" height="28px" width="28px"></a>
+</div>
+
+<!-- Dashboard -->
+<div class="navbar-text btn-group navbar-right">
+  <a class="btn btn-default" href="#" ng-click="modals.dashboard.open()" tooltip-placement="bottom" tooltip="Dashboard"><i class="fa fa-dashboard fa-2x"></i></a>
+</div>
+
+
+<!-- End Spacer -->
+<p class="navbar-text pull-right"><a id="user-login" href="#" class="navbar-link"></a></p>
+

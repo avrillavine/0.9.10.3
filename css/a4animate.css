@@ -1,0 +1,519 @@
+//ACE EDITOR//
+.ace_gutter {
+  background-color:#222;
+  text-align: left;
+  width: 65px !important;
+}
+
+.ace_gutter-layer {
+  width: 65px !important;
+}
+//ACE EDITOR//
+
+.main-lightblue {
+  color:#5bc0de;
+}
+
+.main-lightyellow, .main-lightyellow.active {  
+  background-color: rgb(252, 255, 143) !important;
+}
+
+kbd {
+  background-color:#dfdfdf;
+  color:gray;
+  font-size:12px;
+  padding:2px 12px;
+}
+
+.a4-dd:hover .a4-dd-menu {
+    margin-top:0;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;  
+    float: left;
+    min-width: 190px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+ }
+
+
+
+
+/* TOOLBAR LEFT SIDE */
+/* TOOLBAR LEFT SIDE */
+#left-toolbar {
+     opacity: 0;
+  -o-transition: opacity 1s ease 0.5s;
+-moz-transition: opacity 1s ease 0.5s;
+     transition: opacity 1s ease 0.5s;
+}
+
+#left-toolbar.show {
+  opacity: 1;
+}
+
+
+#robotproject.show {
+  opacity: 1;
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  padding: 2px;
+  border: 2px solid gray;
+}
+
+#robotremoveproject.show {
+  opacity: 1;
+  position: absolute;
+  right: -25px;
+  top: 35px;
+  padding: 2px;
+  border: 2px solid gray;
+}
+
+
+
+#newfile.hide, #importfile.hide, #newproject.hide, #openproject.hide {
+  opacity: 0;  
+}
+/* TOOLBAR LEFT SIDE */
+/* TOOLBAR LEFT SIDE */
+
+
+
+
+/* Animate green button click */
+#toolbar-content a.btn, #toolbar-content button, #toolbar-content label {     
+  border: 1px 50% gray;
+  margin:0px;
+  -webkit-transition: all 0.1s; /* For Safari 3.1 to 6.0 */
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
+#toolbar-content a.btn:active, #toolbar-content button:active, #toolbar-content label:active {  
+  border-top: 3px solid #506460;
+  padding-bottom: 4px;
+  margin-bottom: 0px;
+  background-color: #80C480;  
+}
+
+#project-content .panel-heading a.btn, #project-content .panel-heading button, #project-content .panel-heading label {     
+  border: 1px 50% gray;
+  margin:0px;
+  -webkit-transition: all 0.1s; /* For Safari 3.1 to 6.0 */
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
+#project-content.panel-heading a.btn:active, #project-content.panel-heading button:active, #project-content.panel-heading label:active {  
+  border-top: 3px solid #506460;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  background-color: #80C480;  
+}
+
+/* Animate leafy corner buttons */
+#project-content a, #editor-panel a, div.modal-content button, div.modal-content label {
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  -webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#project-content a:hover, #editor-panel a:hover, div.modal-content button:hover, div.modal-content label:hover {
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+.modal-header {  
+  border-radius: 0px 0px 15px 15px;
+  background-color:#63af47; 
+  color:white;
+}
+
+.github-avatar {
+  position:fixed;
+  left:10px;
+  top:4px;
+  z-index:100;
+}
+
+/* SLide animations */
+.slide {
+  height:0px;
+}
+.slide.in {
+  display: block;
+}
+tr.slide.in {
+  display: table-row;
+}
+tbody.slide.in {
+  display: table-row-group;
+}
+.sliding {
+  position: absolute;
+  bottom: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height .35s ease;
+       -o-transition: height .35s ease;
+          transition: height .35s ease;
+}
+
+.var-dump, .btn-toggle-leftdiv {
+  color: #5bc0de;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  -webkit-transition: all .35s ease;
+       -o-transition: all .35s ease;
+          transition: all .35s ease;
+}
+
+accordion .panel-group {
+  margin-bottom: 0px;
+}
+
+.pad-2px {
+  padding: 2px;
+}
+
+.pad-3px {
+  padding: 3px;
+}
+
+#project-panel .panel-body {
+  overflow-x:hidden;
+  padding: 4px;
+}
+
+.hr-xs {
+  margin: 3px 0;
+}
+
+.wide-150 {
+  width:150px;
+}
+
+
+
+/*
+  accordion panels
+*/
+
+#project-accordion a.ng-binding {  
+  border-radius: 2px;
+  text-decoration: none;
+  background: transparent;
+  list-style: none;
+  display: block;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  -webkit-transition: all .35s ease;
+       -o-transition: all .35s ease;
+          transition: all .35s ease;
+}
+
+#project-accordion a.ng-binding:hover {
+  padding-left:30px;
+  background-color:#f5f5f5;
+  color:#000;
+}
+#spec a.ng-binding:hover:before {  
+  font-family: FontAwesome;  
+  left:-10px;
+  content: "\f108  ";
+}
+
+
+#project-accordion li.ng-scope {
+  list-style-type: none;
+}
+
+#project-accordion li {
+  padding:0px;
+  margin:0px;
+}
+
+#project-accordion li a {
+  padding:3px 20px;
+  margin:0px;
+}
+
+#project-accordion div.panel-body, #project-accordion ul.ng-scope {
+  padding:0 1px;
+  position-left:0;
+  margin:0px;
+}
+
+#project-accordion a.accordion-toggle {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777;
+  white-space: nowrap;
+}
+
+#project-accordion div.panel.panel-default.ng-isolate-scope {
+  border:0px;
+}
+
+#project-accordion div.panel-heading {
+  display: block;
+  padding: 3px 0px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777;
+  white-space: nowrap;
+  background-color:#f5f5f5;
+}
+
+a:hover .hide-hover {
+  opacity:1;
+}
+
+.hide-hover {
+  position:absolute;
+  right:8px;
+  margin:0;
+  padding:0 5px ;
+  border:0;
+  opacity:0;
+    -o-transition: all .35s ease;
+  -moz-transition: all .35s ease;
+       transition: all .35s ease; 
+}
+
+#com-width { 
+  width: 270px;
+}
+
+.a4-fa-red {
+  color: red;
+}
+
+.a4-icon-disconnect {
+  background-color:green;
+}
+
+.a4-icon-connect {
+  background-color:white;
+}
+
+.a4-left-btn {
+  text-align:left;
+}
+
+.a4-text-lg {
+  font-size: 23px;
+  padding:0px 25px;
+}
+
+#dropdownMenu1 {
+  display: inline;
+/*  width: 326px;  */
+  width: 360px;
+}
+
+.project-dropdown {
+  width:395px;  
+}
+
+
+/* media height and dropdown for project browser */
+  .project-dropdown .browser {
+    overflow-y:scroll;
+    max-height: 630px;
+/*    width: 326px;  */
+    width: 360px;
+    margin: 0;
+  }
+
+  @media(min-height:868px){
+    .project-dropdown .browser {
+      overflow-y:scroll;
+      max-height: 730px;
+    } 
+  }
+
+  @media(min-height:968px){
+    .project-dropdown .browser {
+      overflow-y:scroll;
+      max-height: 830px;
+    } 
+  }
+
+  @media(min-height:1068px){
+    .project-dropdown .browser {
+      overflow-y:scroll;
+      max-height: 930px;
+    } 
+  }
+/* media height and dropdown for project browser */
+
+.dark-line {
+  border-top: 2px solid #ddd;
+}
+
+.dark-q {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border-left: 5px solid #ddd;
+  border: 5px solid #ddd;
+}
+
+#editor-tab-container {
+    -o-transition: all .40s;
+  -moz-transition: all .40s;
+       transition: all .40s;
+}
+
+#editor-tab-container.var-container-open {
+  bottom:353px;
+}
+
+#editor-tab-container.var-container-close {
+  bottom:50px;  
+}
+
+#left-section {
+    -o-transition: all .40s;
+  -moz-transition: all .40s;
+       transition: all .40s;
+}
+
+#left-section.var-leftcontainer-open {
+  left: 0;
+}
+
+#left-section.var-leftcontainer-close {
+  left: -410px;
+}
+
+#right-section {
+   -o-transition: all .40s;
+  -moz-transition: all .40s;
+       transition: all .40s;
+}
+
+#right-section.var-rightcontainer-close {
+  left: 30px;
+}
+
+#right-section.var-rightcontainer-open {
+  left: 407px;
+}
+
+.btn-toggle-leftdiv.shift-right {
+  z-index:9999;
+  right:-30px;
+}
+
+.btn-toggle-leftdiv.stay {
+  z-index:9999;
+  right:13px;
+}
+
+#project-panel .btn.btn-default.pad-2px.a4-btn.stay {
+      opacity: 1;
+      position: relative;    
+  -moz-transition: all 1s;
+    -o-transition: all 1s;
+       transition: all 1s;
+}
+
+#project-panel .btn.btn-default.pad-2px.a4-btn.shift-right {
+  position: absolute;
+  top:2px;
+  right:-40px;
+  z-index:9999;
+  border: 2px solid gray;
+}
+
+/*     -Webkit animation for chrome flipping a.var-dump   */
+  #vardump-panel a.var-dump i:active {
+    -webkit-animation: flipIt 0.35s;
+  }
+
+  #left-section.ui-section a.btn-toggle-leftdiv i:active {
+    -webkit-animation: flipItY 0.35s;
+  }
+
+  @-webkit-keyframes flipIt {
+      0%   {-webkit-transform: scale(1,1);}
+      50%  {-webkit-transform: scale(0,1);}
+      100% {-webkit-transform: scale(1,1);}
+  }
+
+  @-webkit-keyframes flipItY {
+      0%   {-webkit-transform: scale(1,1);}
+      50%  {-webkit-transform: scale(1,0);}
+      100% {-webkit-transform: scale(1,1);}
+  }
+/*     -Webkit animation for chrome flipping a.var-dump   */
+
+#app-content {
+  overflow: hidden;
+  background-color:white;
+}
+
+.red {
+  border:1px dashed red;
+  background-color: #9B2424;
+  color:white !important;
+}
+
+.red:hover {
+  background-color: white;
+  color:red !important;
+}
+
+.ng-disabled {
+   display: none !important;
+   pointer-events: none !important;
+   cursor: default !important;
+}
+
+a.pad-pills {  
+  padding:2px 15px !important;
+}
+
+#var-dump {
+  margin-bottom:0px;
+  height:300px;
+}
+
+.nav-pills > li.active > a {
+  background-color:#888;
+}
+
+.nav-pills > li.active > a:hover {
+  background-color:#999;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #222;
+}
+
+#vardump-container .panel-heading {
+  padding:8px 15px;
+
+}

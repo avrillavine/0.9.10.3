@@ -1,0 +1,130 @@
+
+#about-version-block {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.about-api-version {
+  margin-bottom: 0px;
+}
+
+.jade-error-style {
+  background: #600000;
+  color: #FFF;
+}
+
+.jade-current-style {
+  background: #FF9900;
+  color: #000;
+}
+
+
+.sidebar-nav {
+  padding: 5px 5px;
+}
+
+#editor-tab-container,
+#project-container
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 353px;
+  margin: 0px 15px 20px;
+}
+
+#project-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0px;
+}
+
+#project-panel > .panel-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 41px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.folder-panel {
+  margin-bottom: 10px;
+}
+
+.folder-panel > .panel-heading {
+  padding: 10px 10px;
+}
+
+.folder-panel > .panel-body {
+  padding: 5px;
+}
+
+.folder-panel > .panel-body > .nav > li > a {
+  padding: 5px 5px;
+}
+
+.active-label {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+.editor-pane {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+}
+
+#welcome-jumbotron {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  border-radius: 6px;
+  overflow-y: auto;
+}
+
+pre.editor-component {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
+
+
+#mimetics-remote {
+  position: absolute;
+  top: 0;
+  left: 432px;
+  right: 0px;
+  bottom: 10px;
+}
+
+.footer-element {
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+
+/* Dropdown Submenus */
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:hover>.dropdown-menu{display:block;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}

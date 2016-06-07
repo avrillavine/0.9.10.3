@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h3 class="modal-title">Github</h3>
+</div>
+
+<div class="modal-body">
+  <div class="row">
+    <div class="col-xs-4">
+      <img class="img-rounded" ng-src="{{userAvatar >= '' && userAvatar || 'img/avatar.png' }}" width="64" height="64">
+    </div>
+    <div class="col-xs-8 text-center">
+	    <p>You are currently logged in as {{userData.login}}</p>
+      <button type="button" id="GithubLogoutController" class="btn btn-danger" ng-click="auth.logout(project); $dismiss()">Logout</button>
+    </div>
+  </div><!-- end row -->
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>  
+</div>

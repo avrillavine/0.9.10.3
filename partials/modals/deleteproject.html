@@ -1,0 +1,14 @@
+
+<div class="alert alert-danger text-center" role="alert" >
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h1><i class="fa fa-3x fa-trash text-center"></i></h1>
+  <hr>
+  <h4>Are your sure you want to delete this project?</h4>
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" ng-disable="" class="btn btn-danger" ng-click="$dismiss(); deleteProject(project)">Delete</button>
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+</div>
+

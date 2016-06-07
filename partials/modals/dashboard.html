@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h3 class="modal-title">Dashboard</h3>
+</div>
+<div class="modal-body" data-ng-init="getVersions()">
+
+  <div class="row container-fluid">
+    <div class="col-xs-5">
+      <img src="img/logo.jpg"/>
+    </div>
+    <div class="col-xs-4">
+      <p id="about-version-block"><b>Jade Support</b><br/>Version {{appVersion}}</p>
+    </div>
+    <div class="col-xs-3 text-center">      
+      <button type="button" class="btn" ng-class="{'btn-default': !devMode, 'btn-info': devMode}" ng-click="toggleDevMode()">Developer Mode</button>
+    </div>
+  </div>
+
+  <div class="row well">
+    <div class="col-md-6">
+      <h5><b>API Versions</b></h5>
+      <p class="about-api-version">Tokenizer: <code>{{tokenizerVersion}}</code></p>
+      <p class="about-api-version">XML Processor: <code>{{xmlProcessorVersion}}</code></p>
+      <p class="about-api-version">Panel Processor: <code>{{panelProcessorVersion}}</code></p>
+      <p class="about-api-version">Bitmap Processor: <code>{{bitmapProcessorVersion}}</code></p>
+      <p class="about-api-version">Wave Processor: <code>{{waveProcessorVersion}}</code></p>
+      <p class="about-api-version">Text Processor: <code>{{textProcessorVersion}}</code></p>
+      <p class="about-api-version">Syscall API: <code>{{syscallVersion}}</code></p>
+    </div>
+    <div ng-show="robot.info.isConnected" class="col-md-6">
+      <h5><b>Robot Information</b></h5>
+      <p class="about-api-version">Robot Name: <code>{{robot.info.robotName}}</code></p>
+      <p class="about-api-version">S/W Version: <code>{{robot.info.swVersion}}</code></p>
+      <p class="about-api-version">H/W Version: <code>{{robot.info.hwVersion}}</code></p>
+      <p class="about-api-version">Bluetooth MAC: <code>{{robot.info.btMac}}</code></p>
+      <p class="about-api-version">Battery Level: <code>{{robot.info.battLevel}}</code></p>
+      <p class="about-api-version">Storage Free: <code>{{robot.info.bytesAvail}}</code></p>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">  
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Close</button>
+</div>

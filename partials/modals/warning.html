@@ -1,0 +1,13 @@
+<div class="alert alert-warning text-center" role="alert">
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h1><i class="fa fa-warning fa-3x text-center"></i></h1>
+  <hr>
+  <h4>{{errorObject.message}}</h4>
+</div>
+<div class="modal-body">
+<p>{{errorObject.reason}}</p>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-warning" ng-click="$dismiss()">Dismiss</button>
+</div>

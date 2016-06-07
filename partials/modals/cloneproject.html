@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h3 class="modal-title">Clone Project</h3>
+</div>
+
+<div class="modal-body">
+	<p>Please enter a unique name for the cloned project. Project names are a maximum of 8 characters. A .script file with the same name will be created automatically.</p>
+  <label for="newProjectName">Project name</label>
+  <input type="text" class="form-control" id="newProjectName" placeholder="New name for the project">
+  <p id="newProjectErrorHelp" class="text-danger invisible">Fix the error.</p>  
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+  <button type="button" id="createProjectButton" class="btn btn-success">Clone project</button>
+</div>

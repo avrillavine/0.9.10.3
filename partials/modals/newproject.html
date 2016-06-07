@@ -1,0 +1,30 @@
+<form name="newProject" ng-controller="NewProjectController" ng-submit="createProject()">
+
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+    <h3 class="modal-title">New Project</h3>
+  </div>
+
+  <div class="modal-body">
+    	<p>Please enter a name for the new project. Project names are a maximum of 8 characters. A .script file with the same name will be created automatically.</p>
+      <label>Project name</label>
+      <input type="text" name="projectName" class="form-control" placeholder="Name of the new project" ng-model="name" ng-maxlength="8" ng-pattern="/^\w*$/" required>
+      <p ng-show="newProject.projectName.$error.maxlength" class="text-danger">Project name may not be more than 8 characters.</p>
+      <p ng-show="newProject.projectName.$error.pattern" class="text-danger">Project name may not contain characters other than letters, numbers and underscore.</p>
+      <hr>
+      <p>Please select a programming language for the project</p>
+      <div class="btn-group">
+        <label class="btn btn-info" ng-model="projectLanguage" btn-radio="'Scratch'">Scratch</label>
+        <label class="btn btn-info" ng-model="projectLanguage" btn-radio="'C'">C</label>
+      </div>
+      <hr>
+      <p>Please enter a short description of the project to appear in the project tooltop and help generate the README file for the project.</p>
+      <textarea class="form-control" rows="3" name="projectDescription" ng-model="description"></textarea>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+    <button type="submit" ng-disabled="!newProject.projectName.$valid" class="btn btn-success" ng-click="$dismiss()">Create project</button>
+  </div>
+
+</form>

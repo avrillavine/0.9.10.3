@@ -1,0 +1,41 @@
+<form name="importFile" ng-controller="ImportFileController" ng-submit="createImportedFile()">
+
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+    <h3 class="modal-title">Import File</h3>
+  </div>
+
+  <div class="modal-body">
+    <label for="fileTypeButtonGroup">Please select a file type for import:</label>
+    <div id="fileTypeButtonGroup" class="btn-group">
+      <label ng-disabled="currentProject.$manifest.data.executable_type == 'scratch'" class="btn btn-info" ng-model="fileExtension" btn-radio="'function'">Function</label>
+      <label ng-disabled="currentProject.$manifest.data.executable_type == 'scratch'" class="btn btn-info" ng-model="fileExtension" btn-radio="'panel'">Panel</label>
+      <label class="btn btn-info" ng-model="fileExtension" btn-radio="'txt'">Text</label>
+      <label class="btn btn-info" ng-model="fileExtension" btn-radio="'bmp'">Bitmap</label>
+      <label class="btn btn-info" ng-model="fileExtension" btn-radio="'wav'">Wave</label>
+    </div>
+    <hr>
+    <label for="filePathInputGroup">Import name</label>
+    <div id="filePathInputGroup" class="input-group">
+      <input type="text" class="form-control" placeholder="Please select a file to load" ng-model="loadedFile.path" readonly>
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="button" ng-click="loadFile()">...</button>
+      </span>
+    </div>
+
+    <br/>
+    <p>Please enter a new name for the file. File names are a maximum of 8 characters.</p>
+    <div class="input-group">
+    	<input type="text" class="form-control" ng-disabled="!loadedFile" name="fileName" placeholder="Rename file after loading" ng-model="name" ng-maxlength="8" ng-pattern="/^\w*$/" required>
+    	<span class="input-group-addon">.{{fileExtension}}</span>
+    </div>
+    <p ng-show="importFile.fileName.$error.maxlength" class="text-danger">File name may not be more than 8 characters.</p>
+    <p ng-show="importFile.fileName.$error.pattern" class="text-danger">File name may not contain characters other than letters, numbers and underscore.</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+    <button type="submit" ng-disabled="!importFile.fileName.$valid" ng-click="$dismiss()" class="btn btn-success">Import File</button>
+  </div>
+
+</form>

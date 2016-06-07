@@ -1,0 +1,16 @@
+<!-- <form name="delFile" ng-controller="DeleteFileController" ng-submit="deleteFile(file)"> -->
+
+<div class="alert alert-danger text-center" role="alert" >
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+  <h1><i class="fa fa-3x fa-trash text-center"></i></h1>
+  <hr>
+  <h4>Are your sure you want to delete this file?</h4>
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" ng-disable="noneselected()" class="btn btn-danger" ng-click="$dismiss(); deleteFile(file)">Delete</button>
+  <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+</div>
+
+<!-- </form> -->

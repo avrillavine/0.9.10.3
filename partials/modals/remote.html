@@ -1,0 +1,46 @@
+<ul id="remote-tabs" class="nav nav-tabs">
+  <li class="active">
+    <a href="#robot-fs" data-toggle="tab">Robot File System</a>
+  </li>
+  <li>
+    <a href="#var-dump" data-toggle="tab">Variable Dump</a>
+  </li>
+  <li>
+    <a href="#build-log" data-toggle="tab">Build Log</a>
+  </li>
+  <li>
+    <a href="#comm-log" data-toggle="tab">Communication Log</a>
+  </li>
+  <li>
+    <a href="#app-log" data-toggle="tab">Application Log</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane remote-pane log-pane active" id="robot-fs" style='margin-bottom: 0;'>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Checksum</th>
+        </tr>
+      </thead>
+      <tbody id="robot-fs-contents">
+        <tr>
+          <td colspan="4" class="text-muted" align="center"><em>Not connected</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane remote-pane log-pane well well-sm" id="build-log" style='margin-bottom: 0; font-family: "Ubuntu Mono";'>
+    <pre id="build-log-data" class="log-data"></pre>
+  </div>
+  <div class="tab-pane remote-pane log-pane well well-sm" id="comm-log" style='margin-bottom: 0; font-family: "Ubuntu Mono";'>
+    <pre id="comm-log-data" class="log-data"></pre>
+  </div>
+  <div class="tab-pane remote-pane log-pane well well-sm" id="app-log" style='margin-bottom: 0; font-family: "Ubuntu Mono";'>
+    <pre id="app-log-data" class="log-data"></pre>
+  </div>
+</div>

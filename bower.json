@@ -1,0 +1,16 @@
+{
+    "name": "jade-ide",
+    "version": "0.9.8",
+    "dependencies": {
+        "bootstrap": "latest",
+        "angular": "latest",
+    	"angular-animate": "latest",
+    	"angular-resource": "latest",
+        "angular-sanitize": "latest",
+        "angular-bootstrap": "latest",
+        "angular-ui-ace": "latest",
+        "angularjs-scroll-glue": "latest",
+        "jquery-ui": "1.11.0",
+        "q": "1.0.1"
+    }
+}

@@ -1,1 +1,4 @@
-# 0.9.10.3
+jade-ide
+========
+
+Repository for Jade IDE Chrome Packaged App

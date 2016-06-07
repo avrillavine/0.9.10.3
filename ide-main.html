@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="jade-ide" data-ng-csp>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Jade Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mimetics Inc.">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/mimetics-ide.css" rel="stylesheet" type="text/css">
+    <link href="angular/angular-csp.css" rel="stylesheet" type="text/css">
+    <link href="css/a4animate.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--    <link rel="shortcut icon" href="../assets/ico/favicon.png">  -->
+  </head>
+
+  <body ng-controller="JadeIdeController" ng-init="init()" ng-keyup="keyPressed($event)">
+
+    <!-- title bar and controls -->
+    <div class="titlebar text-center" role="title">
+    	<p><b>Jade Support</b></p>
+    </div>
+    <div class="window-control">
+    	<div class="btn-group btn-group-sm pull-right">
+  			<button type="button" ng-click="titlebar.minimizeWin()" class="btn btn-default" id="titlebar-window-min">
+  				<span class="glyphicon glyphicon-chevron-down"></span>
+  			</button>
+  			<button type="button" ng-click="titlebar.maximizeWin()" class="btn btn-default" id="titlebar-window-resmax">
+  				<span class="glyphicon glyphicon-chevron-up"></span>
+  			</button>
+  			<button type="button" ng-click="titlebar.closeWin()" class="btn btn-danger" id="titlebar-window-close">
+  				<span class="glyphicon glyphicon-remove"></span>
+  			</button>
+	    </div>
+    </div>
+
+    <!-- GITHUB Avatar -->
+    <div class="github-avatar">      
+      <img tooltip-placement="right" tooltip="{{userData.login}}" class="img-rounded" ng-src="{{userAvatar >= '' && userAvatar || 'img/avatar.png' }}" width="64" height="64" ng-click="userData ? modals.githublogout.open() : auth.login(true)">
+    </div>
+
+    <!-- main menu bar -->
+    <nav class="navbar navbar-default navbar-fixed-top-bordered" role="navigation">
+      <div id="toolbar-content" data-ng-include src="'partials/toolbar.html'"></div>
+    </nav>
+
+
+    <div id="app-content">
+
+        <div id="left-section" class="ui-section" ng-class="{'var-leftcontainer-close' : !leftdiv.open , 'var-leftcontainer-open' : leftdiv.open }">
+
+          <div id="project-container">
+            <div id="project-content" data-ng-include src="'partials/projectbrowser.html'"></div>
+          </div><!-- /#project-container -->
+
+          <div class="footer">
+
+            <div id="assistant-container">
+              <div id="assistant-content" data-ng-include src="'partials/assistant.html'"></div>
+            </div><!--/#assistant-container-->
+
+          </div>
+
+        </div><!-- /#left-section -->
+
+        <div id="right-section" class="ui-section" ng-class="{'var-rightcontainer-close' : !leftdiv.open , 'var-rightcontainer-open' : leftdiv.open }">
+
+          <div id="editor-tab-container" class="" ng-class="{'var-container-open' : status.open , 'var-container-close' : !status.open }">
+            <div id="editor-tab-content" data-ng-include src="'partials/editortabs.html'"></div>
+          </div><!-- /#editor-tab-container -->
+
+          <div class="footer" tray="!status.open">
+
+            <div id="vardump-container">
+              <div id="vardump-content" data-ng-include src="'partials/variabledump.html'"></div>
+            </div><!--/#vardump-container-->
+
+          </div>
+
+        </div>
+
+    </div><!-- /#app-content -->
+
+    <script id="template/tabs/tabset.html" type="text/ng-template">
+      <div>
+        <ul class="nav nav-{{type || 'tabs'}}" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude></ul>
+        <div class="tab-content">
+          <div class="tab-pane editor-pane"
+               ng-repeat="tab in tabs"
+               ng-class="{active: tab.active}"
+               tab-content-transclude="tab">
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script id="template/tabs/tab.html" type="text/ng-template">
+      <li ng-class="{active: active, disabled: disabled }">
+        <a ng-class="{ 'main-lightyellow' : highlight }" ng-click="select()" tooltip="{{tooltip}}" tab-heading-transclude>{{heading}}</a>
+      </li>
+    </script>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery/js/jquery.js"                    type="text/javascript"></script>
+    <script src="ace/ace.js"                             type="text/javascript"></script>
+    <script src="angular/angular.js"                     type="text/javascript"></script>
+    <script src="angular-resource/angular-resource.js"   type="text/javascript"></script>
+    <script src="angular-sanitize/angular-sanitize.js"   type="text/javascript"></script>
+    <script src="angular-animate/angular-animate.js"     type="text/javascript"></script>
+    <script src="angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript"></script>
+    <script src="angular-ui-ace/ui-ace.js"               type="text/javascript"></script>
+    <script src="angular-scroll-glue/scrollglue.js"      type="text/javascript"></script>
+    <script src="js/a4-jsutils.js"                       type="text/javascript"></script>
+<!--    <script src="jade-robot/btjade-robot.js"             type="text/javascript"></script>  -->
+    <script src="jade-robot/btjade-robot6c.js"           type="text/javascript"></script>
+    <script src="js/jade-ide.js"                         type="text/javascript"></script>
+    <script src="js/services/messager.js"                type="text/javascript"></script>
+    <script src="js/services/errorcatcher.js"            type="text/javascript"></script>
+    <script src="js/services/logger.js"                  type="text/javascript"></script>
+    <script src="js/services/auth.js"                    type="text/javascript"></script>
+    <script src="js/services/browser.js"                 type="text/javascript"></script>
+    <script src="js/services/jadeservices.js"            type="text/javascript"></script>
+    <script src="js/services/jaderobot.js"               type="text/javascript"></script>
+    <script src="js/services/userdata.js"                type="text/javascript"></script>
+    <script src="js/services/projectdata.js"             type="text/javascript"></script>
+    <script src="js/services/projectmanager.js"          type="text/javascript"></script>
+    <script src="js/services/importer.js"                type="text/javascript"></script>
+    <script src="js/controllers/toolbar.js"              type="text/javascript"></script>
+    <script src="js/controllers/projects.js"             type="text/javascript"></script>
+    <script src="js/controllers/assistant.js"            type="text/javascript"></script>
+    <script src="js/controllers/editor.js"               type="text/javascript"></script>
+    <script src="js/controllers/vardump.js"              type="text/javascript"></script>
+    <script src="js/controllers/modals/dashboard.js"     type="text/javascript"></script>
+    <script src="js/controllers/modals/newproject.js"    type="text/javascript"></script>
+    <script src="js/controllers/modals/cloneproject.js"  type="text/javascript"></script>
+    <script src="js/controllers/modals/newfile.js"       type="text/javascript"></script>
+    <script src="js/controllers/modals/importfile.js"    type="text/javascript"></script>
+    <script src="js/controllers/modals/alert.js"         type="text/javascript"></script>
+    <script src="js/controllers/modals/deletefile.js"    type="text/javascript"></script>
+    <script src="js/controllers/modals/deleteproject.js" type="text/javascript"></script>
+    <script src="js/controllers/modals/readmeviewer.js"  type="text/javascript"></script>
+    <script src="js/controllers/modals/githublogout.js"  type="text/javascript"></script>
+    <script src="js/directives/blockly.js"               type="text/javascript"></script>
+    <script src="js/directives/tray.js"                  type="text/javascript"></script>
+  </body>
+</html>

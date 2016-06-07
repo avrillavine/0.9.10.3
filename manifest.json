@@ -1,0 +1,51 @@
+{
+  "name": "Jade Support",
+  "version": "0.9.10.3",
+  "manifest_version": 2,
+  "minimum_chrome_version": "44",
+  "description": "The Jade Robot™, from Mimetics, is an advanced yet easy-to-use educational robot designed for youth, educators and school groups.",
+
+  "icons": {
+    "128": "img/128x128.png"
+  },
+
+  "app": {
+    "background": {
+      "scripts": ["ide-entry.js"]
+    }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3IEtznfSp3wGW+GuvDgnH1WRGK/zn532///zGXYZoTXlDqKSRlBUvFtKcxC5+DjcQP3irA8K3z8eneUbcE4O3qBDfcL9rV3/64I2Xp0b0C9i6LZXIg/4F7KLLRw7VHcnEhQINu8jdTi83CzzzpnQWV766U9nX8CYmrCQZWci+kLIJ60c65VriZT/oV4ae3199IDJ4GlGm+d9snlDrH4YGc56TiPNltQSWO1leYaMparoK4IuakI4qRqcAvZT5se4fIpeOCfAdSfg8bCeOC3BMoxEd0yhHOGn/fC/94CrkcDXR0qYtRILfHnaxCN2i1KaG4RcyoEWeHGKO6JzQpWGwIDAQAB",
+
+  "permissions": [
+    "contextMenus",
+    "webview",
+    "identity",
+    "serial",
+    "storage",
+    "fileSystem",
+    "clipboardRead",
+    "clipboardWrite",
+    "https://accounts.google.com/*",
+    "https://userdata.cloud.mimetics.ca/*",
+    "https://toksvc.cloud.mimetics.ca/*",
+    "https://avatars.githubusercontent.com/*"
+   ],
+
+  "bluetooth":{
+    "socket": true,
+    "uuids":
+    [
+        "00001101-0000-1000-8000-00805f9b34fb"
+    ]
+  },
+
+  "sandbox": {
+    "pages": ["blocklyframe.html"]
+  },
+
+  "oauth2": {
+    "client_id": "453803291486.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email"]
+  }
+
+}

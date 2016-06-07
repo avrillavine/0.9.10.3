@@ -1,0 +1,23 @@
+<div id="assistant-panel" class="panel panel-default" data-ng-controller="AssistantController">
+ 
+
+  <div class="panel-heading">
+    <div class="row">        
+        <div class="col-xs-11">
+          Assistant
+        </div>
+        <a ng-click="toggleLeftPanel()" class="btn-toggle-leftdiv" title="Collapse" ng-class="{'shift-right' : !leftdiv.open , 'stay' : leftdiv.open }">
+          <i ng-class="{'fa fa-2x fa-chevron-circle-left': leftdiv.open, 'fa fa-2x fa-chevron-circle-right': !leftdiv.open}"></i>
+        </a>       
+      </div>    
+  </div>
+
+  <div class="panel-body">
+
+<!--    <webview id='content-browser' src='http://www.mimetics.arcanefour.com/democontent/images/jade1.png' style='width: 400px;'></webview>  -->
+    <webview id='content-browser' src='https://www.mimetics.ca/JadeSupport.html' style='width: 400px;'></webview>                  
+
+  </div><!--/.panel-body-->
+</div><!--/#content-panel-->
+
+

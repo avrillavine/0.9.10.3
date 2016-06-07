@@ -1,0 +1,178 @@
+<div id="project-panel" class="panel panel-default" data-ng-controller="ProjectsController" data-ng-init="find()">
+
+  <div class="panel-heading pad-3px">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="btn-group">
+          <div class="btn-group dropdown project-dropdown">
+            <button class="btn btn-default dropdown-toggle a4-left-btn a4-text-lg project-dropdown" id="dropdownMenu1" ng-disabled="!userData" data-toggle="dropdown" href="#"><strong>{{ currentProject.$project.name || '... Select a Project ...'}}</strong></button>
+            <ul id="dropdown-pulldown" class="dropdown-menu project-dropdown browser" role="menu" aria-labelledby="">
+              <!--<li role="presentation" class="dropdown-header">Create Projects</li>-->
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="javscript:void(0);" ng-click="modals.newproject.open()">New Project</a>
+              <li role="presentation"><a ng-class="{'ng-disabled' : isUserProject(currentProject)}" role="menuitem" tabindex="-1" href="javscript:void(0);" ng-click="cloneProject(currentProject)" >Clone Project</a></li>
+
+
+              <!-- ng-class="{'ng-disabled' : isUserProject(currentProject)}" -->
+
+              <li role="presentation">
+              <accordion id="project-accordion" class="spec">
+                <accordion-group is-open="cats.dropdownUser">
+                  <accordion-heading class="dropdown-header">
+                      My Projects<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': cats.dropdownUser, 'glyphicon-chevron-right': !cats.dropdownUser}"></i>
+                  </accordion-heading>
+                  <ul>
+                    <li ng-repeat="(projectname, project) in userProjects">
+                      <a href="javscript:void(0);" ng-click="selectProject(project.$project)" ng-mouseover="tooltip(project.$project)" popover-animation="false" popover-popup-delay="250" popover="{{dynamicPopover}}" popover-title="{{dynamicPopoverTitle}}" popover-trigger="mouseenter" popover-append-to-body="true" popover-placement="right">{{ projectname }}</a>
+                    </li>
+                  </ul>
+                </accordion-group>
+                <accordion-group is-open="cats.dropdownCommunity">
+                  <accordion-heading>
+                      Community Projects<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': cats.dropdownCommunity, 'glyphicon-chevron-right': !cats.dropdownCommunity}"></i>
+                  </accordion-heading>
+                  <ul>
+                    <li ng-repeat="(projectname, project) in sampleProjects">
+                      <a href="javscript:void(0);" ng-click="selectProject(project.$project)" ng-mouseover="tooltip(project.$project)" popover-animation="false" popover-popup-delay="250" popover="{{dynamicPopover}}" popover-title="{{dynamicPopoverTitle}}" popover-trigger="mouseenter" popover-append-to-body="true" popover-placement="right">{{ projectname }}</a>
+                    </li>
+                  </ul>
+                </accordion-group>
+              </accordion></li>
+              <li role="presentation" class="divider"><a ng-class="{'ng-disabled' : !isUserProject(currentProject)}" role="menuitem" tabindex="-1" href="javscript:void(0);" ng-click="modals.deleteproject.open(currentProject)" ></a></li>
+              <li role="presentation"><a class="red" ng-class="{'ng-disabled' : !isUserProject(currentProject)}" role="menuitem" tabindex="-1" href="javscript:void(0);" ng-click="modals.deleteproject.open(currentProject)" >Delete Project <i class="fa fa-fw fa-trash"></i></a></li>
+
+            </ul>
+
+
+
+<!--            <button class="btn pad-2px a4-btn" type="button" ng-disabled="!userData || buildInProgress" ng-click="buildAndDownloadProject(currentProject)" tooltip-placement="bottom" tooltip="Transfer to Robot (F10)" ng-class="{'btn-default' : !currentProject.dirty , 'btn-danger' : currentProject.dirty}"><img src="img/robotdownload.png" height="28px" width="28px"></button>  -->
+            <button class="btn btn-default pad-2px a4-btn" type="button" ng-disabled="true" ng-click="" tooltip-placement="bottom" tooltip="Remove from Robot"><img src="img/robotremove.png" height="28px" width="28px"></button>
+
+          </div>
+
+        </div><!-- btn-group -->
+
+        <!-- BUTTONS FOR LEFT TOOLBAR -->
+        <!-- BUTTONS FOR LEFT TOOLBAR -->
+        <!-- BUTTONS FOR LEFT TOOLBAR -->
+        <div id="left-toolbar" ng-class="{'show' : !leftdiv.open}">
+<!--          <button id="robotproject" class="btn btn-default a4-btn" ng-disabled="!userData || buildInProgress" ng-click="buildAndDownloadProject(currentProject)" tooltip-placement="right" tooltip="Transfer to Robot (F10)" ng-class="{'show' : !leftdiv.open , 'hide' : leftdiv.open , 'btn-default' : !currentProject.dirty , 'btn-danger' : currentProject.dirty}"><img src="img/robotdownload.png" height="28px" width="28px">
+          </button>  -->
+          <button id="robotremoveproject" ng-disabled="true" class="btn btn-default a4-btn" ng-click="" tooltip-placement="right" tooltip="Remove from Robot" ng-class="{'show' : !leftdiv.open , 'hide' : leftdiv.open }"><img src="img/robotremove.png" height="28px" width="28px">
+          </button>
+        </div>
+      </div><!-- Column -->
+    </div><!-- row -->
+  </div>
+
+    <!--
+    <div class="btn-group">
+
+      <div class="btn-group dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+          Dropdown
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#" ng-click="modals.newproject.open()">New Project</a></li>
+          <li><a href="#" ng-click="modals.cloneproject.open()">Clone Project</a></li>
+          <li>
+          <accordion>
+            <accordion-group>
+              <accordion-heading>
+                  My Projects<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+              </accordion-heading>
+              <ul>
+                <li ng-repeat="project in userProjects">
+                  <a href="#" ng-click="selectProject(project)">{{ project.name }}</a>
+                </li>
+              </ul>
+            </accordion-group>
+            <accordion-group>
+              <accordion-heading>
+                  Community Projects<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+              </accordion-heading>
+              <ul>
+                <li ng-repeat="project in sampleProjects">
+                  <a href="#" ng-click="selectProject(project)">{{ project.name }}</a>
+                </li>
+              </ul>
+            </accordion-group>
+          </accordion>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-default">2</button>
+
+    </div>
+    -->
+
+  <div class="panel-body">
+
+      <div class="row text-center">
+        <div class="col-xs-12">
+          <a ng-disabled="!currentProject || !isUserProject(currentProject)" href="#" class="btn btn-info btn-xs wide-150" ng-click="modals.newfile.open()">New File</a>
+          <a ng-disabled="!currentProject || !isUserProject(currentProject)" href="#" class="btn btn-info btn-xs wide-150" ng-click="modals.importfile.open()">Import File</a>
+        </div>
+      </div>  
+      
+      <hr class="hr-xs">  
+
+
+      <accordion close-others="false" id="project-accordion">
+        <accordion-group is-open="true">
+          <accordion-heading>Project Files</accordion-heading>
+          <ul>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.script' }">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-file': true}"></i> {{ file.name }}</a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.xml' }">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-cube': true}"></i> {{ file.name }}</a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.function' }">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-file-o': true}"></i> {{ file.name }}
+                <span class="btn btn-default pull-right hide-hover" ng-click="modals.deletefile.open(file)" tooltip-placement="left" tooltip="Delete file">
+                  <i class="fa fa-1x fa-trash"></i>
+                </span>
+              </a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.txt' }">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-file-o': true}"></i> {{ file.name }}
+                <span class="btn btn-default pull-right hide-hover" ng-click="modals.deletefile.open(file)" tooltip-placement="left" tooltip="Delete file">
+                  <i class="fa fa-1x fa-trash"></i>
+                </span>
+              </a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.panel'}">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-square-o': true}"></i> {{ file.name }}
+                <span class="btn btn-default pull-right hide-hover" ng-click="modals.deletefile.open(file)" tooltip-placement="left" tooltip="Delete file">
+                  <i class="fa fa-1x fa-trash"></i>
+                </span>
+              </a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.bmp'}">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-file-picture-o': true}"></i> {{ file.name }}
+                <span class="btn btn-default pull-right hide-hover" ng-click="modals.deletefile.open(file)" tooltip-placement="left" tooltip="Delete file">
+                  <i class="fa fa-1x fa-trash"></i>
+                </span>
+              </a>
+            </li>
+            <li ng-repeat="file in currentProject.$files | filter: { name: '.wav'}">
+              <a ng-click="openProjectFile(currentProject.$project, file)">
+                <i ng-class="{'a4-fa-red': currentProject[file.name].dirty, 'fa': true, 'fa-fw': true, 'fa-file-sound-o': true}"></i> {{ file.name }}
+                <span class="btn btn-default pull-right hide-hover" ng-click="modals.deletefile.open(file)" tooltip-placement="left" tooltip="Delete file">
+                  <i class="fa fa-1x fa-trash"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </accordion-group>
+      </accordion>
+
+      
+  </div><!-- /.panel-body -->
+</div><!-- /#project-panel -->

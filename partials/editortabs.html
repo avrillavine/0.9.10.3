@@ -1,0 +1,25 @@
+<div id="editor-panel" data-ng-controller="EditorController">
+  <tabset>
+
+    <tab id="home-tab">
+      <tab-heading><span tooltip-placement="bottom" tooltip="Welcome">{{ ( !currentProject || currentProject === "/" ) ? "Home" : "README" }}</span>
+        <a class="close " ng-class="{ 'main-lightblue' : isReadmeDirty() }" type="button" style="margin-left: 6px;" ng-click="closeReadmeEditor()" ng-hide="!isReadmeEditorActive()" tooltip-placement="bottom" tooltip="{{readmeState}}">
+          <i ng-class="{ 'fa fa-fw fa-close': !isReadmeDirty(),'fa fa-fw fa-save main-lightblue' : isReadmeDirty() }"></i>
+        </a>        
+      </tab-heading>
+      <div id="home-content" ng-class="{'jumbotron' : !isReadmeEditorActive()}" ng-include src="isReadmeEditorActive() ? 'partials/readmeeditor.html' : returnTab"></div>
+    </tab>
+
+    <tab ng-repeat="(tabid, tab) in editorTabs" highlight="isTabFromCommunityProject(tabid)" active="tab.active" select="onEditorTabActive(tabid)">
+
+      <tab-heading>
+        <span tooltip-placement="bottom" tooltip="{{tab.path}}">{{tab.name}}</span>
+        <button ng-click="destroyEditor(tabid)" class="close" type="button" style="margin-left: 6px;">&times;</button>
+      </tab-heading>
+
+      <div class="editor-content" data-ng-include src="getEditorTemplate(tab.contenttype)"></div>
+
+    </tab>
+
+  </tabset>
+</div>

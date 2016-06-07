@@ -1,0 +1,26 @@
+<div id="vardump-panel" class="panel panel-default" data-ng-controller="VariableDumpController">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-11">        
+          <!-- Nav tabs -->
+        <ul class="nav nav-pills" role="tablist">
+          <li ng-class="{'active': panelContent == 'partials/variablepanel.html'}"><a class="pad-pills" href="#" role="tab" ng-click="panelContent = 'partials/variablepanel.html'">Variables</a></li>
+          <li ng-class="{'active': panelContent == 'partials/fspanel.html'}" ng-show="devMode"><a class="pad-pills" href="#" role="tab" ng-click="panelContent = 'partials/fspanel.html'">File System</a></li>
+          <li ng-class="{'active': panelContent == 'partials/logpanel.html'}" ng-show="devMode"><a class="pad-pills" href="#" role="tab" ng-click="panelContent = 'partials/logpanel.html'">Logging</a></li>
+        </ul>
+      </div>
+
+      <a ng-click="toggleVariablePanel()" class="var-dump" title="Collapse">
+        <i ng-class="{'fa fa-2x fa-chevron-circle-up': !status.open, 'fa fa-2x fa-chevron-circle-down': status.open}"></i>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Tab panes -->
+
+  <div id="var-content" class="tab-content" ng-include="panelContent">
+  </div>
+
+
+</div>

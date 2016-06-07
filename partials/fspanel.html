@@ -1,0 +1,23 @@
+<div class="panel-body scroll-pane" id="file-system" style='margin-bottom: 0;'>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Filename</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Checksum</th>
+      </tr>
+    </thead>
+    <tbody id="file-system-contents">
+      <tr ng-hide="filesystemList">
+        <td colspan="4" class="text-muted" align="center"><em>File system contents are not available</em></td>
+      </tr>
+      <tr ng-hide="!filesystemList" ng-repeat="(filename, fileinfo) in filesystemList">
+        <td>{{fileinfo.fullname}}</td>
+        <td>{{fileinfo.type}}</td>
+        <td>{{fileinfo.size}}</td>
+        <td>{{fileinfo.checksum}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
